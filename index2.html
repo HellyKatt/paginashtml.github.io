@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+
+    <title>Our supervillains</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main id="hero">
+        
+        <video id="videoCabecera" controls style="width: 100%;" autoplay loop>
+            <source src="BackgroundMarvel.mp4"
+            type="video/mp4">
+            click_event = new CustomEvent('click');
+            btn_element = document.querySelector('#videoCabecera');
+            btn_element.dispatchEvent(click_event);
+            
+        </video>
+    
+    </main>
+
+<header>
+
+</header>
+
+<section>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+    let vid = document.getElementById("videoCabecera");
+    vid.play();
+});
+
+    async function populate() {
+
+        const requestURL = 'superheroes.json';
+        const request = new Request(requestURL);
+
+        const response = await fetch(request);
+        const superHeroesText = await response.text();
+
+        const superHeroes = JSON.parse(superHeroesText);
+        populateHeader(superHeroes);
+        populateHeroes(superHeroes);
+
+    }
+
+    function populateHeader(obj) {  //objetos y etiquetas h1
+        const header = document.querySelector('header');
+        const myH1 = document.createElement('h1');
+        const myH3 = document.createElement('h3');
+        //const myimg = document.createElement('img');
+        myH1.textContent = obj.villainSquadName;
+        header.appendChild(myH1);
+        myH3.textContent = obj.intro;
+        header.appendChild(myH3);
+        //myimg.imageContent = obj.image;
+        //header.appendChild(myimg);
+
+        const myPara = document.createElement('p');
+        
+        header.appendChild(myPara);
+    }
+
+    function populateHeroes(obj) {
+        const section = document.querySelector('section');
+        const heroes = obj.villianSquadMembers;
+
+        for (const hero of heroes) {
+            const myArticle = document.createElement('article');
+            const myH2 = document.createElement('h2');
+            const myPara1 = document.createElement('p');
+            const myPara2 = document.createElement('p');
+            const myPara3 = document.createElement('p');
+            //const myPara4 = document.createElement('p');
+            //const myPara5 = document.createElement('p');
+            const myList = document.createElement('ul');
+ 
+            var myimg = new Image();
+            myimg.src =  hero.image;
+            var myimgBandera = new Image();
+            myimgBandera.src =  hero.countryImg;
+            myimgBandera.style.width = "35px";
+            myH2.textContent = hero.villainName;
+            myPara1.textContent = `Origin Country: ${hero.country}`;
+            myPara2.textContent = `Age: ${hero.villainAge}`;
+            myPara3.textContent = 'Superpowers:';
+            //myPara4.textContent = 'Element:';
+
+            const superPowers = hero.villainPowers;
+            for (const power of superPowers) {
+                const listItem = document.createElement('li');
+                listItem.textContent = power;
+                myList.appendChild(listItem);
+            }
+            myArticle.appendChild(myimg);
+            myArticle.appendChild(myH2);
+            myArticle.appendChild(myimgBandera);
+            myArticle.appendChild(myPara1);
+            myArticle.appendChild(myPara2);
+            myArticle.appendChild(myPara3);
+            //myArticle.appendChild(myPara4);
+            //myArticle.appendChild(myPara5);
+            myArticle.appendChild(myList);
+
+            section.appendChild(myArticle);
+        }
+    }
+
+    populate();
+
+</script>
+</body>
+</html>
