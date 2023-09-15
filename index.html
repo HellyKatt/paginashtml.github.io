@@ -24,7 +24,7 @@
     </main>
 
 <header>
-
+   
 </header>
 
 <section>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const myH1 = document.createElement('h1');
         const myH3 = document.createElement('h3');
         //const myimg = document.createElement('img');
-        myH1.textContent = obj.villainSquadName;
+        myH1.textContent = obj.SoftwareSquadName;
         header.appendChild(myH1);
         myH3.textContent = obj.intro;
         header.appendChild(myH3);
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function populateHeroes(obj) {
         const section = document.querySelector('section');
-        const heroes = obj.villianSquadMembers;
+        const heroes = obj.SoftwareSquadMembers;
 
         for (const hero of heroes) {
             const myArticle = document.createElement('article');
@@ -87,13 +87,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var myimgBandera = new Image();
             myimgBandera.src =  hero.countryImg;
             myimgBandera.style.width = "35px";
-            myH2.textContent = hero.villainName;
+            myH2.textContent = hero.NickName;
             myPara1.textContent = `Origin Country: ${hero.country}`;
             myPara2.textContent = `Age: ${hero.villainAge}`;
-            myPara3.textContent = 'Superpowers:';
+            myPara3.textContent = 'SuperHabilities:';
             //myPara4.textContent = 'Element:';
 
-            const superPowers = hero.villainPowers;
+            const superPowers = hero.Habilities;
             for (const power of superPowers) {
                 const listItem = document.createElement('li');
                 listItem.textContent = power;
