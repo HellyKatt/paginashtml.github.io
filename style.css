@@ -21,7 +21,7 @@ h3 {
     color: rgb(48, 42, 42);
     font-size: 30px;
     position: relative;
-    bottom: 130px;
+    bottom: 110px;
 }
 
 
@@ -52,6 +52,7 @@ h1 {
 
 
 h2 {
+    margin-left: 16%;
     font-size: 4rem; /*elementos titulos c#Siren etc..*/
     text-align: left;
     color: rgb(228, 17, 87);
@@ -60,6 +61,7 @@ h2 {
 }
 
 img{
+    margin-left: 16%;
     padding: 0%; /*IMG SUPERHERIOES*/
     position: relative;
     bottom: 250px;
@@ -83,7 +85,8 @@ section article {
 }
 /*SECTION Secret identity:*/
 section p {
-    margin: 5px 0; 
+    /*margin: 5px 0;*/
+    margin-left: 18%;
     font-size: 30px;
     position: relative;
     bottom: 230px;
@@ -91,6 +94,7 @@ section p {
 
 section ul {
     margin-top: 0;
+    margin-left: 11%;
     color: #ff07b5;
     font-size: 40px;
     font-style:normal;
@@ -107,3 +111,17 @@ h2 {
 /*DESDE AQUIII//////////////////////////*/
 
 }
+
+@media  (max-width: 800px) {
+    #hero {
+        flex-direction: column;
+    }
+    
+}
+
+
+
+
+
+
+
