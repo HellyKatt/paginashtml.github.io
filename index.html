@@ -2,36 +2,77 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-
-    <title>Our supervillains</title>
-
+    <title>Software Villains</title> 
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
 </head>
-
 <body>
     <main id="hero">
-        
         <video id="videoCabecera" controls style="width: 100%;" autoplay loop>
             <source src="BackgroundMarvel.mp4"
             type="video/mp4">
             click_event = new CustomEvent('click');
             btn_element = document.querySelector('#videoCabecera');
             btn_element.dispatchEvent(click_event);
-            
         </video>
-    
-    </main>
+    </main> 
+
+     <!--::::Pie de Pagina::::::-->
+</body>      
 
 <header>
     
 </header>
 
 <section>
-
 </section>
+<div style="text-align: center;">
+    <p id="p1">¿SERAS PARTE DE ESTA MISION? PRESIONA E INGRESA TU NOMBRE</p>
+</div>
+     <!--::::Pie de Pagina::::::-->
+ <footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href="#">
+                    <img src="JOHA.jpeg" alt="Logo de SLee Dw">
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Estudiante Universitaria de colombia 4 Semestre</p>
+            <p>Quality Asurance in Teclife Colombia</p>
+            <p>Futura Desarroladora front End</p>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2021 <b>SLee Dw</b> - Todos los Derechos Reservados.</small>
+    </div>
+</footer>  
 
-<script>
+
+<script> // Inicio boton
+    const para = document.querySelector("#p1");
+
+para.addEventListener("click", updateName);
+
+function updateName() {
+  let name = prompt("Enter a new name");
+  para.textContent = "Player 1: " + name;
+}
+//finaliza boton
 document.addEventListener("DOMContentLoaded", function(event) {
     let vid = document.getElementById("videoCabecera");
     vid.play();
@@ -75,9 +116,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for (const hero of heroes) {
             const myArticle = document.createElement('article');
             const myH2 = document.createElement('h2');
-            const myPara1 = document.createElement('p');
-            const myPara2 = document.createElement('p');
-            const myPara3 = document.createElement('p');
+            const OriginCountry = document.createElement('p');
+            const Age = document.createElement('p');
+            const SuperHabilities = document.createElement('p');
             //const myPara4 = document.createElement('p');
             //const myPara5 = document.createElement('p');
             const myList = document.createElement('ul');
@@ -88,9 +129,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             myimgBandera.src =  hero.countryImg;
             myimgBandera.style.width = "35px";
             myH2.textContent = hero.NickName;
-            myPara1.textContent = `Origin Country: ${hero.country}`;
-            myPara2.textContent = `Age: ${hero.villainAge}`;
-            myPara3.textContent = 'SuperHabilities:';
+            OriginCountry.textContent = `Origin Country: ${hero.country}`;
+            Age.textContent = `Age: ${hero.villainAge}`;
+            SuperHabilities.textContent = 'SuperHabilities:';
             //myPara4.textContent = 'Element:';
 
             const superPowers = hero.Habilities;
@@ -102,9 +143,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             myArticle.appendChild(myimg);
             myArticle.appendChild(myH2);
             myArticle.appendChild(myimgBandera);
-            myArticle.appendChild(myPara1);
-            myArticle.appendChild(myPara2);
-            myArticle.appendChild(myPara3);
+            myArticle.appendChild(OriginCountry);
+            myArticle.appendChild(Age);
+            myArticle.appendChild(SuperHabilities);
             //myArticle.appendChild(myPara4);
             //myArticle.appendChild(myPara5);
             myArticle.appendChild(myList);
@@ -116,5 +157,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     populate();
 
 </script>
+
+
+
+
+
 </body>
+
 </html>
